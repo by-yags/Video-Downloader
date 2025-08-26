@@ -306,7 +306,8 @@ class VideoDownloader:
                     stdout=subprocess.PIPE, 
                     stderr=subprocess.STDOUT, 
                     text=True,
-                    universal_newlines=True
+                    encoding="utf-8",   # ✅ force UTF-8 decoding
+                    errors="replace"    # ✅ avoid crashing on bad chars
                 )
                 
                 # Read output in real-time
